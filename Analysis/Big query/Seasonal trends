@@ -1,0 +1,19 @@
+-- Query 11: Monthly and Quarterly Patient Volume Trends
+-- This query counts the number of unique patients visiting the network each month to spot trends.
+SELECT
+  d.year,
+  d.quarter,
+  d.month,
+  COUNT(DISTINCT ft.patient_sk) AS UniquePatientCount
+FROM
+  `healthcare-rcm-project.healthcare_rcm.fact_transactions` AS ft
+JOIN
+  `healthcare-rcm-project.healthcare_rcm.dim_date` AS d
+  ON ft.date_sk = d.date_sk
+GROUP BY
+  d.year,
+  d.quarter,
+  d.month
+ORDER BY
+  d.year,
+  d.month;
