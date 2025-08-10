@@ -1,0 +1,11 @@
+# Python
+*.pyc
+__pycache__/
+*.log
+
+# OS and IDE
+.DS_Store
+.vscode/
+
+# Credentials and sensitive files
+*.json
